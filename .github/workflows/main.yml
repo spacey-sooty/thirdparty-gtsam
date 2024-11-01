@@ -29,6 +29,8 @@ jobs:
             cmake --build build --parallel $(nproc)
         - run: ./gradlew publish -Pplatform=arm-frc2024-linux
           name: Build with Gradle
+        - name: Debug
+          run: ls gradleDir/outputs
         - uses: actions/upload-artifact@v4
           with:
             name: ${{ matrix.artifact-name }}
