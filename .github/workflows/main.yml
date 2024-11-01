@@ -33,6 +33,8 @@ jobs:
             SCCACHE_GHA_ENABLED: "true"
         - run: ./gradlew publish -Pplatform=arm-frc2024-linux
           name: Build with Gradle
+        - name: Debug
+          run: ls gradleDir/outputs
         - uses: actions/upload-artifact@v4
           with:
             name: ${{ matrix.artifact-name }}
